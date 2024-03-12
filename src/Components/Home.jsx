@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar/Navbar'
 import About from './About/About'
 import Skills from './Skills/Skills'
@@ -6,28 +6,56 @@ import Projects from './Projects/Projects'
 import Contact from './Contact/Contact'
 import { Element } from 'react-scroll';
 import Footer from './Footer'
-import { Box } from '@chakra-ui/react'
+import { Box, Button, Text } from '@chakra-ui/react'
+import { IoIosArrowUp } from 'react-icons/io';
 
 const Home = () => {
+
+  const [display, setDisplay] = useState(false);
+
+  useEffect(() => {
+    const handleDisplay = () => {
+      window.pageYOffset > 400 ? setDisplay(true) : setDisplay(false);
+    }
+    window.addEventListener("scroll", handleDisplay);
+    return () => {
+      window.removeEventListener("scroll", handleDisplay);
+    }
+  })
+
   return (
-    <Box
-      overflowX={"hidden"}
-    >
-      <Navbar />
+    <>
+      <Box
+        position={"relative"}
+        overflowX={"hidden"}
+      >
+        <Navbar />
         <Element name='about' >
-        <About/>
-      </Element>
-      <Element name='skills' >
-        <Skills/>
-      </Element>
-      <Element name='projects' >
-        <Projects/>
-      </Element>
-      <Element name='contact' >
-        <Contact/>
-      </Element>
-      <Footer/>
-    </Box>
+          <About />
+        </Element>
+        <Element name='skills' >
+          <Skills />
+        </Element>
+        <Element name='projects' >
+          <Projects />
+        </Element>
+        <Element name='contact' >
+          <Contact />
+        </Element>
+        <Footer />
+      </Box>
+      <Button
+        display={display ? "flex" : "none"}
+        position={"fixed"}
+        bottom={{ base: "3%", lg: "5%" }}
+        right={{ base: "2%", md: "3%", lg: "5%" }}
+        zIndex={9}
+        border={"2px solid white"}
+        borderRadius={"50%"}
+        onClick={() => window.scrollTo({ top: "0px", behavior: "smooth" })}
+      ><IoIosArrowUp size={15} />
+      </Button>
+    </>
   )
 }
 

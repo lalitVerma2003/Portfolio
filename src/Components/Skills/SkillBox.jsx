@@ -6,7 +6,6 @@ const SkillBox = ({skill}) => {
   return (
     <Flex
         align={"center"}
-        // minW={"30%"}
         px={2}
         my={1}
         border={"1px solid #81858c"}

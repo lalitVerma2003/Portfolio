@@ -1,31 +1,39 @@
 import { Box, FormControl, Input, Text, VStack, Button, Textarea } from '@chakra-ui/react'
 import React from 'react'
+import { useForm } from 'react-hook-form';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+
+    const process=import.meta.env;
+    const {register,handleSubmit,formState:{errors}}=useForm();
+
+    const sendEmail = (formData) => {
+        console.log(formData);
+        emailjs
+          .send(process.VITE_REACT_YOUR_SERVICE_ID, process.VITE_REACT_YOUR_TEMPLATE_ID, formData, {
+            publicKey: process.VITE_REACT_YOUR_PUBLIC_KEY,
+          })
+          .then(
+            () => {
+              console.log('SUCCESS!');
+            },
+            (error) => {
+              console.log('FAILED...', error);
+            },
+          );
+      };
 
     return (
         <Box
             w={"100%"}
-            // minH={"50vh"}
             backgroundColor={"#1C1E27"}
             py={5}
-        //     background={`linear-gradient(
-        //     38.73deg,
-        //     rgba(204, 0, 187, 0.15) 0%,
-        //     rgba(201, 32, 184, 0) 50%
-        //   ),
-        //   linear-gradient(
-        //     141.27deg,
-        //     rgba(0, 70, 209, 0) 50%,
-        //     rgba(0, 70, 209, 0.15) 100%
-        //   )`}
         >
             <VStack
                 w={{ sm: "100%", md: "90%", lg: "80%" }}
                 m={"auto"}
-                // p={10}
                 alignItems={"center"}
-                // border={"1px solid white"}
             >
                 <Text fontSize={{ base: "2rem", md: "2.5rem" }} color={"#F2F3F4"} >Contact</Text>
                 <Text fontSize={{ sm: "0,5rem", md: "1rem", lg: "1.5rem" }} textAlign={"center"} color={"#F2F3F4"} >Feel free to reach out to me for any questions or opportunities!</Text>
@@ -37,20 +45,26 @@ const Contact = () => {
                     borderRadius={20}
                     alignItems={"flex-start"}
                     p={5}
-                    // border={"2px solid white"}
                 >
                     <Text fontSize={{ sm: "1rem", md: "1.5rem", lg: "2rem" }} color={"#F2F3F4"} >Email me</Text>
                     <FormControl>
-                        <Input placeholder='Your Email' _placeholder={{ color: '#b1b2b3', opacity: "0.6" }} border={'1px solid #b1b2b3'} p={5} my={2} color={'#F2F3F4'} />
+                        <Input placeholder='Your Email' _placeholder={{ color: '#b1b2b3', opacity: "0.6" }} border={'1px solid #b1b2b3'} p={5} my={2} color={'#F2F3F4'} {...register("user_email",{
+                            required: "Email is required",
+                            validate: (email)=>{
+                                if(email.includes("@gmail.com"))
+                                    return true;
+                                return "Email must include @gmail.com";
+                            }
+                            })} />
+                        {errors.user_email&&<Text fontSize={"1rem"} color={"red"} >* {errors.user_email.message}</Text>}
                     </FormControl>
                     <FormControl>
-                        <Input placeholder='Your Name' _placeholder={{ color: '#b1b2b3', opacity: "0.6" }} border={'1px solid #b1b2b3'} p={5} my={2} color={'#F2F3F4'} />
+                        <Input placeholder='Your Name' _placeholder={{ color: '#b1b2b3', opacity: "0.6" }} border={'1px solid #b1b2b3'} p={5} my={2} color={'#F2F3F4'} {...register("user_name",{required: "Name is required"})} />
+                        {errors.user_name&&<Text fontSize={"1rem"} color={"red"} >* {errors.user_name.message}</Text>}
                     </FormControl>
                     <FormControl>
-                        <Input placeholder='Subject' _placeholder={{ color: '#b1b2b3', opacity: "0.6" }} border={'1px solid #b1b2b3'} p={5} my={2} color={'#F2F3F4'} />
-                    </FormControl>
-                    <FormControl>
-                        <Textarea placeholder='Message' _placeholder={{ color: '#b1b2b3', opacity: "0.6" }} border={'1px solid #b1b2b3'} p={5} my={2} color={'#F2F3F4'} resize={"none"} rows={5} cols={10} />
+                        <Textarea placeholder='Message' _placeholder={{ color: '#b1b2b3', opacity: "0.6" }} border={'1px solid #b1b2b3'} p={5} my={2} color={'#F2F3F4'} resize={"none"} rows={5} cols={10} {...register("message",{required: "Message is required"})} />
+                        {errors.message&&<Text fontSize={"1rem"} color={"red"} >* {errors.message.message}</Text>}
                     </FormControl>
                     <Button
                         w={"100%"}
@@ -63,6 +77,7 @@ const Contact = () => {
                         _hover={{
 
                         }}
+                        onClick={handleSubmit(sendEmail)}
                     >Send</Button>
                 </VStack>
             </VStack>

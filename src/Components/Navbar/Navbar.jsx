@@ -34,7 +34,6 @@ const Navbar = () => {
             p={2}
             justifyContent={{ base: "space-between", md: "space-evenly" }}
             backgroundColor={"#090917"}
-        // position={"fixed"}
         >
             <Text fontSize={"2rem"} color={"#F2F3F4"} display={{ base: "none", md: "flex" }} >Portfolio</Text>
             <HStack
@@ -42,7 +41,6 @@ const Navbar = () => {
                 w={{ md: "50%", lg: "40%" }}
                 m={3}
                 justifyContent={"space-evenly"}
-            // border={"2px solid white"}
             >
                 <NavbarItems />
             </HStack>
@@ -79,7 +77,6 @@ const Navbar = () => {
                             w={"100%"}
                             h={"40vh"}
                             justifyContent={"space-evenly"}
-                        // border={"2px solid white"}
                         >
                             <ChakraLink as={Link} to="about" smooth={true} duration={500} onClick={onClose}>
                                 <Text color={"#F2F3F4"}  >About</Text>

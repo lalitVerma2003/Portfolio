@@ -8,7 +8,6 @@ const About = () => {
         <Box
             w={"100%"}
             backgroundColor={"#090917"}
-        // border={"2px solid white"}
         >
             <Box
                 display={"flex"}
@@ -17,7 +16,6 @@ const About = () => {
                 m={"auto"}
                 p={{ sm: 5, md: 10 }}
                 alignItems={"center"}
-            // border={"2px solid red"}
             >
 
                 <VStack
@@ -25,13 +23,12 @@ const About = () => {
                     alignItems={"flex-start"}
                     p={3}
                     m={3}
-                // border={"2px solid white"}
                 >
                     <Text fontSize={{ base: "2rem", md: "3rem" }} color={"#F2F3F4"} >Hi, I am Lalit Verma</Text>
                     <Text fontSize={{ md: "1.5rem", lg: "2rem" }} color={"#F2F3F4"} fontWeight={"bold"} >I am a <Text color={"#74278f"} display={"inline-block"} >Full stack developer</Text></Text>
                     <Text fontSize={"1rem"} color={"#F2F3F4"} >{Bio.description}
                     </Text>
-                    <Link href={Bio.resume} w={{ base: "50%", sm: "40%" }} target='_blank' >
+                    <Link href={Bio.resume} w={{ base: "50%", sm: "40%" }} target='_blank' color={"white"} >
                         <Button
                             w={"100%"}
                             color={"#F2F3F4"}
@@ -43,7 +40,7 @@ const About = () => {
                           )"
                             borderRadius={20}
                             m={5}
-                        // onClick={()=> }
+                            variant="unstyled"
                         >Check Resume</Button>
                     </Link>
                 </VStack>
@@ -52,8 +49,6 @@ const About = () => {
                     justifyContent={"center"}
                     alignItems={"center"}
                     w={{ sm: "70%", md: "50%" }}
-                // w={"50%"}
-                // border={"2px solid white"}
                 >
                     <Image src="/public/ProfilePic.jpg" fallbackSrc='https://via.placeholder.com/150' boxSize={"70%"} borderRadius={"50%"} border={'2px solid #854CE6'} objectFit={"cover"} draggable={"false"} />
                 </Box>

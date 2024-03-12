@@ -1,9 +1,7 @@
-import { HStack, IconButton, Image, Link, Text, Tooltip, VStack } from '@chakra-ui/react'
+import { HStack, Image, Link, Text, Tooltip, VStack, Button } from '@chakra-ui/react'
 import React from 'react'
 import NavbarItems from './Navbar/NavbarItems'
-import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
-import instaCursor from '/insta-cursor.png';
-// import LeetcodeIcon from '/GFGIcon';
+import { FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
 
@@ -17,13 +15,6 @@ const Footer = () => {
                 m={{base:2,md:5}}
             >
                 <Text fontSize={"1.3rem"} mt={5} color={"#854CE6"} >Lalit Verma</Text>
-                <HStack
-                    w={{ base: "100%", sm: "80%", md: "60%" }}
-                    justifyContent={"space-evenly"}
-                    m={2}
-                >
-                    <NavbarItems />
-                </HStack>
                 <HStack
                     w={{ base: "60%", sm: "40%", md: "30%" }}
                     m={{base:1,md:3}}
