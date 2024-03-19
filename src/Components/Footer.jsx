@@ -8,16 +8,22 @@ const Footer = () => {
     return (
         <VStack
             w={"100%"}
-            backgroundColor={"#090917"}
+            backgroundColor={"#1c1c27"}
         >
             <VStack
                 w={{ base: "100%", md: "70%" }}
                 m={{base:2,md:5}}
             >
-                <Text fontSize={"1.3rem"} mt={5} color={"#854CE6"} >Lalit Verma</Text>
+                <HStack
+                    w={{ base: "100%", sm: "80%", md: "60%" }}
+                    justifyContent={"space-evenly"}
+                    flexWrap={"wrap"}
+                    m={2}
+                >
+                    <NavbarItems />
+                </HStack>
                 <HStack
                     w={{ base: "60%", sm: "40%", md: "30%" }}
-                    m={{base:1,md:3}}
                     justifyContent={"space-evenly"}
                 >
                     <Tooltip label="geeksforgeeks" hasArrow >

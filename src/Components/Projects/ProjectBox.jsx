@@ -13,13 +13,14 @@ const ProjectBox = ({ project }) => {
                 display={"flex"}
                 flexDir={{ base: "column", sm: "row" }}
                 alignItems={"center"}
-                w={{base:"80%",md:"80%"}}
+                w={{ base: "80%", md: "80%" }}
                 p={1}
-                backgroundColor={'#1C1E27'}
+                backgroundColor={"none"}
                 borderRadius={10}
+                border={"1px solid #2b6f89"}
             >
                 <VStack
-                    w={{base:"90%",md:"50%"}}
+                    w={{ base: "90%", md: "50%" }}
                     justifyContent={"space-between"}
                     alignItems={"flex-start"}
                     m={{ base: 2, md: 3 }}
@@ -37,7 +38,7 @@ const ProjectBox = ({ project }) => {
                     </HStack>
                 </VStack>
                 <Box
-                    w={{base:"80%",md:"50%"}}
+                    w={{ base: "80%", md: "50%" }}
                     m={2}
                     overflow={"hidden"}
                     borderRadius={"10px 0px 0px 10px"}
@@ -46,11 +47,19 @@ const ProjectBox = ({ project }) => {
                 </Box>
             </Box>
             <Link href={project.github} target='_blank' w={{ base: "40%", sm: "30%", md: "30%" }} >
-                <Button w={"100%"} fontSize={"1.2rem"} backgroundColor="hsla(271, 100%, 50%, 1)" color={"#F2F3F4"} _hover={{
-                    backgroundColor: "#b1b2b3",
-                    border: "2px solid hsla(271, 100%, 50%, 1)",
-                    color: "hsla(271, 100%, 50%, 1)"
-                }} borderRadius={20} >Github<FaGithub style={{ marginLeft: 5 }} /></Button>
+                <Button
+                    w={"100%"}
+                    fontSize={"1.2rem"}
+                    backgroundColor={"#2f95b4"}
+                    color={"#F2F3F4"}
+                    borderRadius={20}
+                    _hover={{
+                        color: "#2f95b4",
+                        backgroundColor: "#F2F3F4",
+                        transition: "all 0.5s ease"
+                    }}
+                >Github<FaGithub style={{ marginLeft: 5 }} />
+                </Button>
             </Link>
         </VStack>
     )

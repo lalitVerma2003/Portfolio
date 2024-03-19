@@ -33,7 +33,7 @@ const Navbar = () => {
             w={"100%"}
             p={2}
             justifyContent={{ base: "space-between", md: "space-evenly" }}
-            backgroundColor={"#090917"}
+            backgroundColor={"#042530"}
         >
             <Text fontSize={"2rem"} color={"#F2F3F4"} display={{ base: "none", md: "flex" }} >Portfolio</Text>
             <HStack
@@ -45,18 +45,16 @@ const Navbar = () => {
                 <NavbarItems />
             </HStack>
             <IconButton display={{ base: "flex", md: "none" }} onClick={onOpen} ><FaBars /></IconButton>
-            <ChakraLink href={`${Bio.github}`} target='_blank' >
+            <ChakraLink href={`${Bio.github}`} target='_blank' style={{textDecoration:"none"}} >
                 <Button
-                    border={'1px solid #854CE6'}
-                    color={"#854CE6"}
-                    backgroundColor={"#090917"}
+                    display={"flex"}
+                    justifyContent={"center"}
+                    alignItems={"center"}
+                    backgroundColor={"#2f95b4"}
                     borderRadius={20}
                     p={5}
-                    _hover={{
-                        backgroundColor: '#854CE6',
-                        color: 'white',
-                    }}
-                >Github Profile</Button>
+                    variant={"unstyled"}
+                ><Text color={"#F2F3F4"} textAlign={"center"} >Github Profile</Text></Button>
             </ChakraLink>
 
             <Drawer

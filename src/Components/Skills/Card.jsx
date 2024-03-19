@@ -8,10 +8,10 @@ const Card = ({skill}) => {
     <VStack
         alignItems={"center"}
         w={{sm:"70%",md:"70%",lg:"45%"}}
-        border={'1px solid #854CE6'}
+        border={"1px solid #2b6f89"}
         borderRadius={20}
-        backgroundColor={"#101725"}
-        boxShadow={'0px 0px 8px 0px #854CE6'}
+        backgroundColor={"none"}
+        boxShadow={'0px 0px 8px 0px #2b6f89'}
     >
         <Text fontSize={{base:"1.5rem",md:"2rem"}} p={1} color={"#F2F3F4"} >{skill.title}</Text>
         <HStack

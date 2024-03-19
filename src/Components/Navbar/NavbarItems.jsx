@@ -9,8 +9,8 @@ const NavbarItems = () => {
     color: "#F2F3F4",
     boxSizing: "border-box",
     "&:hover": {
-      borderBottom: "2px solid white",
-      transition: "borderBottom 3s"
+      color: "#259ec0",
+      transition: "color 0.3s ease-in-out"
     }
   }
 

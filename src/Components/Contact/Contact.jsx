@@ -1,4 +1,4 @@
-import { Box, FormControl, Input, Text, VStack, Button, Textarea } from '@chakra-ui/react'
+import { Box, FormControl, Input, Text, VStack, Button, Textarea, useToast } from '@chakra-ui/react'
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
@@ -6,10 +6,10 @@ import emailjs from '@emailjs/browser';
 const Contact = () => {
 
     const process=import.meta.env;
-    const {register,handleSubmit,formState:{errors}}=useForm();
+    const {register,handleSubmit,reset,formState:{errors}}=useForm();
+    const toast=useToast();
 
     const sendEmail = (formData) => {
-        console.log(formData);
         emailjs
           .send(process.VITE_REACT_YOUR_SERVICE_ID, process.VITE_REACT_YOUR_TEMPLATE_ID, formData, {
             publicKey: process.VITE_REACT_YOUR_PUBLIC_KEY,
@@ -17,6 +17,13 @@ const Contact = () => {
           .then(
             () => {
               console.log('SUCCESS!');
+              reset({user_email:"",user_name:"",message:""});
+              toast({
+                title: 'Message Sent',
+                status: 'success',
+                duration: 4000, 
+                isClosable: true, 
+              });
             },
             (error) => {
               console.log('FAILED...', error);
@@ -27,7 +34,7 @@ const Contact = () => {
     return (
         <Box
             w={"100%"}
-            backgroundColor={"#1C1E27"}
+            backgroundColor={"#08242f"}
             py={5}
         >
             <VStack
@@ -41,10 +48,11 @@ const Contact = () => {
                     w={{ base: "90%",sm:"80%",md: "70%", lg: "60%" }}
                     minH={"auto"}
                     m={5}
-                    backgroundColor={"#090917"}
+                    backgroundColor={"#171721"}
                     borderRadius={20}
                     alignItems={"flex-start"}
                     p={5}
+                    boxShadow={'0px 0px 8px 10px #0f2437'}
                 >
                     <Text fontSize={{ sm: "1rem", md: "1.5rem", lg: "2rem" }} color={"#F2F3F4"} >Email me</Text>
                     <FormControl>
@@ -68,12 +76,8 @@ const Contact = () => {
                     </FormControl>
                     <Button
                         w={"100%"}
-                        backgroundColor="hsla(271, 100%, 50%, 1)"
-                        background="linear-gradient(
-                    225deg,
-                    hsla(271, 100%, 50%, 1) 0%,
-                    hsla(294, 100%, 50%, 1) 100%
-                  )"
+                        backgroundColor="#042530"
+                        color={"white"}
                         _hover={{
 
                         }}

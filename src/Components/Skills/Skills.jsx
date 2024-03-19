@@ -9,7 +9,6 @@ const Skills = () => {
         <Box
             w={"100%"}
             p={5}
-            backgroundColor={"#1C1E27"}
         >
             <VStack
                 w={{base:"100%",md:"80%"}}

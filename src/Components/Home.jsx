@@ -33,12 +33,17 @@ const Home = () => {
         <Element name='about' >
           <About />
         </Element>
-        <Element name='skills' >
-          <Skills />
-        </Element>
-        <Element name='projects' >
-          <Projects />
-        </Element>
+        <Box
+          w={"100%"}
+          bgGradient="linear(to-b, #1c1c27, #0c222d)"
+        >
+          <Element name='skills' >
+            <Skills />
+          </Element>
+          <Element name='projects' >
+            <Projects />
+          </Element>
+        </Box>
         <Element name='contact' >
           <Contact />
         </Element>

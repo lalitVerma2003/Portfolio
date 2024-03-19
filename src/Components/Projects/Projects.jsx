@@ -9,7 +9,6 @@ const Projects = () => {
         <VStack
             w={"100%"}
             justifyContent={"center"}
-            backgroundColor={"#090917"}
         >
             <VStack
                 w={{sm:"90%",md:"90%",lg:"90%"}}
