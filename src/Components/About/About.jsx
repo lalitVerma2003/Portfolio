@@ -45,7 +45,7 @@ const About = () => {
                     alignItems={"center"}
                     w={{ sm: "70%", md: "50%" }}
                 >
-                    <Image src="/public/ProfilePic.jpg" fallbackSrc='https://via.placeholder.com/150' boxSize={"70%"} borderRadius={"50%"} border={'2px solid #339ec0'} objectFit={"cover"} draggable={"false"} />
+                    <Image src="/public/ProfilePic.jpg" alt='Image not found' fallbackSrc='https://via.placeholder.com/150' boxSize={"70%"} borderRadius={"50%"} border={'2px solid #339ec0'} objectFit={"cover"} draggable={"false"} />
                 </Box>
             </Box>
         </Box>
