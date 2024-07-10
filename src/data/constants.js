@@ -1,6 +1,6 @@
 export const Bio = {
   description: "Aspiring Full Stack Web Developer in the learning phase, with proficiency in both front-end and back-end technologies. Excited to use my skills to make strong and creative websites.Decent in problem-solving skills and a positive attitude towards learning new technologies.",
-  resume: "https://drive.google.com/file/d/1VgRzQVXLhF_bmerrZ2Lr-j0IFVrzDOUZ/view?usp=drivesdk",
+  resume: "https://drive.google.com/file/d/1bqqNVRkw6RWbpMSB_kUfoCmKLElk2m3p/view",
   github: "https://github.com/lalitVerma2003"
 }
 
